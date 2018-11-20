@@ -73,6 +73,8 @@ function calc() {
     const finContractMonth = document.getElementById('contract-month-output');
     const bidPrice = document.getElementById('bd-pr').value;
     const sellPrice = document.getElementById('sel-pr').value;
+    const profitOutput  = document.getElementById('profit-output');
+    const feederBreakeven = document.getElementById('feeder-be');
 
     //dof calulates how many days it will take to reach target weight
     let dof = (finishWeight - aveWeight) / rateOfGain;
@@ -96,8 +98,12 @@ function calc() {
         return reorderArr;
       })();
     
+    //calculations outputs
     finDay.innerHTML = finDateFormat;
     finContractMonth.innerHTML = feederContractMonth(formatDate(finDate));
+    feederBreakeven.innerHTML = '$ ' + ((breakEven * 100).toFixed(2) + ' CWT');  
+    profitOutput.innerHTML = '$ ' + beProfit.toFixed(2) + ' /head';
+
    
     console.log('finish date:', finDateFormat);
     console.log('contract month:', feederContractMonth(formatDate(finDate)));
