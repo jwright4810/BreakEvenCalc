@@ -22,20 +22,45 @@ document.getElementById('tdDate').value = formatDate(modayrString);
 console.log('todays date', formatDate(modayrString)); 
 
 //contractMonth will take in a date and output a contract month in this format- Jan 2019
- function contractMonth(fdMnth) {
-    const mnthArray = fdMnth.split('-');
-    const rtYear = parseInt(mnthArray[0]);
-    const rtMonth = parseInt(mnthArray[1]);
-    const rtDay = parseInt(mnthArray[2]);
+    function feederContractMonth(fdMnth) {
+      const mnthArray = fdMnth.split('-');
+      const rtYear = parseInt(mnthArray[0].slice(2));
+      const rtMonth = parseInt(mnthArray[1]);
+      const newContract = [];
+    
+      if (rtMonth === 12 || rtMonth === 1) {
+          newContract.push('Jan');
+      } else if (rtMonth === 2 || rtMonth === 3) {
+          newContract.push('Mar');
+      } else if (rtMonth === 4) {
+          newContract.push('Apr');
+      } else if (rtMonth === 5) {
+          newContract.push('May');
+      } else if (rtMonth === 6 || rtMonth === 7 || rtMonth === 8) {
+        newContract.push('Aug');
+      } else if (rtMonth === 9) {
+        newContract.push('Sep');
+      } else if (rtMonth === 10) {
+        newContract.push('Oct');
+      } else if (rtMonth === 11) {
+        newContract.push('Nov');
+      } else {console.log('error')};
 
-
-    if (rtYear === 2018) {
-        return true;
-    };
+      if (rtMonth === 12 ) {
+        newContract.push(rtYear + 1);  
+      } else {
+        newContract.push(rtYear);
+      };
+      
+    const finalNewContract = newContract.join(' ').toString();
+    
+    return finalNewContract + " Feeder Cattle";
     
  } 
 
- contractMonth("2018-11-18");
+ feederContractMonth("2018-04-18");
+    
+
 
 
 function calc() {
@@ -44,27 +69,44 @@ function calc() {
     const rateOfGain = document.getElementById('rog').value;
     const costOfGain = document.getElementById('cog').value;
     const deathLoss = document.getElementById('dl').value;
+    const finDay = document.getElementById('fin-date-output');
+    const finContractMonth = document.getElementById('contract-month-output');
+    const bidPrice = document.getElementById('bd-pr').value;
+    const sellPrice = document.getElementById('sel-pr').value;
 
     //dof calulates how many days it will take to reach target weight
     let dof = (finishWeight - aveWeight) / rateOfGain;
     // tot calculates how much it will cost based on Cost of gain input
-    let tot = dof * costOfGain;
+    let tot = (finishWeight - aveWeight) * costOfGain;
     //totDl factors in deathloss into total 
-    let totDl = (tot * 100) / (100 - deathLoss);
-
+    const totDl = (tot * 100) / (100 - deathLoss);
+    //breakeven gives the price you can sell a calf to breakeven on the price
+    const breakEven = (totDl + (aveWeight * bidPrice)) / finishWeight;
+    //beProfit is the sellPrice minus breakeven multiplied by the finish weight
+    const beProfit = (sellPrice - breakEven) * finishWeight;  
 
     //firstDay is in this formatt yyyy-mm-dd
     const firstDay = document.getElementById('tdDate').value;
     const firDay = new Date(firstDay);
     const finDate = new Date(firDay.setDate(firDay.getDate() + dof));
 
+    const finDateFormat = (function () {
+        const arr = formatDate(finDate).split('-');
+        const reorderArr = [arr[1], arr[2], arr[0]].join('/').toString();
+        return reorderArr;
+      })();
+    
+    finDay.innerHTML = finDateFormat;
+    finContractMonth.innerHTML = feederContractMonth(formatDate(finDate));
    
-   
-    console.log('finish date', formatDate(finDate));
-    console.log('days on feed', dof);
-    console.log('total cost', tot);
-    console.log('total price w/ dl', totDl);
-}
+    console.log('finish date:', finDateFormat);
+    console.log('contract month:', feederContractMonth(formatDate(finDate)));
+    console.log('days on feed:', dof);
+    console.log('total cost:', tot);
+    console.log('total price w/ dl:', totDl);
+    console.log('breakeven', breakEven);
+    console.log('profit', beProfit.toFixed(2));
+  }   
 
 
 
