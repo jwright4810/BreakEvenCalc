@@ -1,13 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Carter+One');
+
+body {
+    font-family: 'Carter-One', cursive;
+}
+
 .input-container {
-    background-color: grey;
+    background-color: rgb(147, 251, 129);
     display: flex; 
     flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    
 }
 
 .input-fields {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 10px auto;
+    width: 30vw;
+    font-size: 1.7vw;
+}
+.input-fields h1 {
+    margin: 2vw auto;
+}
+.input-fields input {
+    font-family: inherit;
 }
 
 .output-container {
