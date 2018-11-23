@@ -1,16 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Carter+One');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
-    font-family: 'Carter-One', cursive;
+    font-family: 'Roboto', cursive;
+    color: white;
+    background: #092756;
+	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
 }
 
 .input-container {
-    background-color: rgb(147, 251, 129);
+    background-color: rgba(0, 0, 0, 0.212);
     display: flex; 
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
-    
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.212)
 }
 
 .input-fields {
@@ -18,17 +26,150 @@ body {
     flex-direction: column;
     margin: 10px auto;
     width: 30vw;
-    font-size: 1.7vw;
+    
 }
-.input-fields h1 {
-    margin: 2vw auto;
+#tdDate {
+    font-size: 3vw;
+}
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+input[type="date"]::-webkit-inner-spin-button {
+    height: 2vw;
+    color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  }
+.input-fields h1, .proj-dates h1 {
+    font-size: 3.5vw;
+    margin: 10px 5px;
 }
 .input-fields input {
-    font-family: inherit;
-}
-
-.output-container {
-    background-color: rgb(168, 211, 251);
     
-
+    font-family: inherit;
+    width: 24vw;
+    height: 2vw;
+    margin-bottom: 10px;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 4vw;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+.input-fields input:focus { 
+    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); 
+}
+.aver-weight {
+    position: relative;
+}
+.aver-weight input {
+    padding-right: 18px;
+    width: 20vw;
+    
+}
+.aver-weight::before {
+    position: absolute;
+    top: 5px;
+    content: 'lbs';
+    right: 6vw;
+    font-size: 3.7vw;
+}
+.fin-weight {
+    position: relative;
+}
+.fin-weight input {
+    padding-right: 18px;
+    width: 20vw;
+    
+}
+.fin-weight::before {
+    position: absolute;
+    top: 5px;
+    content: 'lbs';
+    right: 6vw;
+    font-size: 3.7vw;
+}
+.rate-gain {
+    position: relative;
+    
+}
+.rate-gain input {
+    padding-right: 18px;
+    width: 70%;
+    
+}
+.rate-gain::before {
+    position: absolute;
+    top: 17%;
+    content: 'lbs/day';
+    right: 17%;
+    font-size: 3vw;
+}
+.cost-gain {
+    position: relative;
+}
+.cost-gain input {
+    padding-right: 18px;
+    width: 70%;
+}
+.cost-gain::before {
+    position: absolute;
+    top: 5px;
+    content: '/lb';
+    right: 6vw;
+    font-size: 3.7vw;
+}
+.death-loss {
+    position: relative;
+}
+.death-loss input {
+    padding-right: 18px;
+    width: 70%;
+}
+.death-loss::before {
+    position: absolute;
+    top: 5px;
+    content: '%';
+    right: 6vw;
+    font-size: 3.7vw;
+}
+.output-container {
+    background-color: rgba(17, 34, 49, 0.212);
+}
+.proj-dates {
+    display: flex; 
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.proj-dates p {
+    
+    font-family: inherit;
+    width: 39vw;
+    height: 3vw;
+    margin: 0px 3vw 0 0;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 4vw;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease;
 }
