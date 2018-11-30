@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>Break Even Calculator</title>
 
 </head>
 <body>
+    <!-- main inputs -->
     <div class="input-container">
         <div class="input-fields">
             <h1>Average Weight</h1>
@@ -46,7 +48,8 @@
             </span>
         </div>
     </div>
-    
+
+    <!--Finish day and contract month  -->
     <div class="output-container">
         <div class="proj-dates">
             <div class="fin-date">
@@ -59,23 +62,34 @@
             </div>
              
         </div>
-        <div class="sell-price">
-            <h1>Projected Sell Price</h1>
-            <input id='sel-pr' />
-        </div> 
-        <div class="bid-price"></div>
-            <h1>Bid Price</h1>
-            <button id="bid-up">+</button>
-            <button id="bid-down">-</button>
+
+        <!-- sell and bid inputs -->
+        <div class="sell-bid">
+            <div class="sell-price">
+                <h1>Sell Price</h1>
+                <input id='sel-pr' />
+            </div> 
+            <div class="bid-price">
+                <h1>Bid Price</h1>
+                <div class="inc-but">
+                    <button id="bid-up"><i class="fas fa-plus"></i></button>
+                    <button id="bid-down"><i class="fas fa-minus"></i></button>
+                </div>   
             <input id='bd-pr'/>
-        <div class="break-even">
-            <h1>Feeder Break Even</h1>
-            <p id="feeder-be"></p>
-        </div>
-        <div class="profit">
-            <h1>Profit</h1>
-            <p id="profit-output"></p>
-        </div>
+                
+        </div> 
+        <div class="final-output">
+            <div class="break-even">
+                <h1>Feeder Break Even</h1>
+                <p id="feeder-be"></p>
+            </div>    
+        
+            <div class="profit">
+                <h1>Profit</h1>
+                <p id="profit-output"></p>
+            </div>
+        </div>   
+            
 
     </div>
     <button onclick="calc()">click</button>
