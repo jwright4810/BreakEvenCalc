@@ -3,7 +3,7 @@
 body {
     font-family: 'Roboto', cursive;
     color: white;
-    background: #092756;
+    /* background: #092756; */
 	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
 	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
 	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
@@ -11,7 +11,6 @@ body {
 	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
 }
-
 .input-container {
     background-color: rgba(0, 0, 0, 0.212);
     display: flex; 
@@ -20,13 +19,11 @@ body {
     flex-wrap: wrap;
     box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.212)
 }
-
 .input-fields {
     display: flex;
     flex-direction: column;
     margin: 10px auto;
     width: 30vw;
-    
 }
 #tdDate {
     font-size: 3vw;
@@ -38,13 +35,12 @@ input[type="date"]::-webkit-inner-spin-button {
     height: 2vw;
     color: #fff;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-  }
+}
 .input-fields h1 {
     font-size: 3.5vw;
     margin: 10px 5px;
 }
 .input-fields input {
-    
     font-family: inherit;
     width: 24vw;
     height: 2vw;
@@ -177,6 +173,7 @@ input[type="date"]::-webkit-inner-spin-button {
     transition: box-shadow .5s ease;
 }   
 .sell-bid {
+    position: relative;
     display: flex; 
     flex-direction: column;
     
@@ -193,7 +190,7 @@ input[type="date"]::-webkit-inner-spin-button {
     background: rgba(0,0,0,0.3);
     border: none;
     outline: none;
-    padding: 10px;
+    padding: 10px 0px 10px 28px;
     font-size: 6vw;
 	color: #fff;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
@@ -207,9 +204,17 @@ input[type="date"]::-webkit-inner-spin-button {
     transition: box-shadow .5s ease;
 }
 .sell-price {
+    position: relative;
     display: flex;
     flex-direction: row;
     margin:  5vw 0;
+}
+.sell-price::before {
+    position: absolute;
+    top: 10px;
+    content: '$';
+    right: 44vw;
+    font-size: 6vw;
 }
 .sell-price h1 {
     font-size: 4.5vw;
@@ -217,17 +222,23 @@ input[type="date"]::-webkit-inner-spin-button {
     width: 28vw;
 }
 .bid-price {
+    position: relative;
     display: flex; 
     flex-direction: row; 
     margin: 5vw, 0;
 }
-
+.bid-price::before {
+    position: absolute;
+    top: 10px;
+    content: '$';
+    right: 44vw;
+    font-size: 6vw;
+}
 .bid-price h1 {
     margin: 3vw 0 0 3vw;
     width: 28vw;
     font-size: 4.5vw;
 }
-
 .inc-but {
     display: flex;
     flex-direction: column; 
@@ -248,15 +259,80 @@ input[type="date"]::-webkit-inner-spin-button {
     margin: 1vw 4vw 0 0;
     outline: none;
 }
-
 .inc-but .fa-plus:before, .fa-minus:before {
     font-size: 6vw;
     text-shadow: 5px 5px 11px black;
 }
-
 .final-output {
     display: flex;
     margin: 5vw 10vw 5vw 5vw;
-    justify-content: space-between;
+    justify-content: center;
 }
-
+.break-even {
+    display:flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin-left: 30px;
+}
+.profit {
+    display:flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+#feeder-be {
+    font-family: inherit;
+    width: 39vw;
+    height: 6.5vw;
+    margin: 0px 3vw 0 0vw;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 5.5vw;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease;
+}
+#profit-output  {
+    font-family: inherit;
+    width: 39vw;
+    height: 6.5vw;
+    margin: 0px 3vw 0 0vw;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 5.5vw;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease;
+}
+button {
+    background-color: #3498DB;
+	border-bottom: 5px solid #2980B9;
+	text-shadow: 0px -2px #2980B9;
+    position: relative;
+	padding: 5px 40px;
+    margin: 0px 10px 10px 95px;
+	border-radius: 10px;
+	font-size: 5.5vw;
+	color: #FFF;
+    text-decoration: none;	
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+    outline: none;
+}
