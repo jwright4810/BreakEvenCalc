@@ -36,6 +36,9 @@ input[type="date"]::-webkit-inner-spin-button {
     color: #fff;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 }
+input[type='date'] {
+    -webkit-appearance: none; 
+}
 .input-fields h1 {
     font-size: 3.5vw;
     margin: 10px 5px;
