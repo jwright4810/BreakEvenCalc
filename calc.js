@@ -104,17 +104,25 @@ function calc() {
     feederBreakeven.innerHTML = '$ ' + ((breakEven * 100).toFixed(2) + ' CWT');  
     profitOutput.innerHTML = '$ ' + beProfit.toFixed(2) + ' /head';
 
-   
-    console.log('finish date:', finDateFormat);
-    console.log('contract month:', feederContractMonth(formatDate(finDate)));
-    console.log('days on feed:', dof);
-    console.log('total cost:', tot);
-    console.log('total price w/ dl:', totDl);
-    console.log('breakeven', breakEven);
-    console.log('profit', beProfit.toFixed(2));
   }   
 
 
+function incrementor() {
+  let bid = parseFloat(document.getElementById('bd-pr').value); 
+  bid = isNaN(bid) ? 0 : bid;
+  bid = bid + (5/100); 
+  document.getElementById('bd-pr').value = bid.toFixed(2); 
+}
+function decrementor() {
+  let bid = parseFloat(document.getElementById('bd-pr').value); 
+  bid = isNaN(bid) ? 0 : bid;
+  bid = bid - (5/100); 
+  document.getElementById('bd-pr').value = bid.toFixed(2); 
+}
 
 
-
+document.getElementById('bid-up').addEventListener('click', incrementor);
+document.getElementById('bid-up').addEventListener('click', calc);
+document.getElementById('bid-down').addEventListener('click', decrementor);
+document.getElementById('bid-down').addEventListener('click', calc);
+  
