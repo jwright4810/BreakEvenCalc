@@ -77,8 +77,12 @@ function calc() {
     const profitOutput  = document.getElementById('profit-output');
     const feederBreakeven = document.getElementById('feeder-be');
 
-    if(aveWeight === null || aveWeight === "") {
-      alert("Eat Shit!")
+    if(isNaN(aveWeight) || aveWeight === "" || 
+       isNaN(finishWeight) || finishWeight === "" || 
+       isNaN(rateOfGain) || rateOfGain === "" ||
+       isNaN(costOfGain) || costOfGain === "" || 
+       isNaN(deathLoss) || deathLoss === "") {
+      alert("Please fill out all require fields with a number.")
     } else {
     //dof calulates how many days it will take to reach target weight
     let dof = (finishWeight - aveWeight) / rateOfGain;
