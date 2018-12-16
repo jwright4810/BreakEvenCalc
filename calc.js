@@ -58,7 +58,7 @@ console.log('todays date', formatDate(modayrString));
     
  } 
 
- feederContractMonth("2018-04-18");
+//  feederContractMonth("2018-04-18");
     
 
 
@@ -119,35 +119,53 @@ function calc() {
   function resetValues() {
    allInputs = document.getElementsByTagName('input');
    allOutputs = document.getElementsByTagName('p');
-
+  //  sets Purchase Date to current date
+   document.getElementById('tdDate').value = formatDate(modayrString);
+  // sets all inputs to an empty string
    for(let i = 0; i < allInputs.length; i++) {
      if(allInputs[i].type !== 'date') {
        allInputs[i].value = '';
      }
     }
+  // sets all outputs to an empty string 
     for(let j = 0; j < allOutputs.length; j++) {
       allOutputs[j].innerHTML = '';
     }
   }
- 
 
+
+// function increments bid price by .5
 function incrementor() {
   let bid = parseFloat(document.getElementById('bd-pr').value); 
-  bid = isNaN(bid) ? 0 : bid;
-  bid = bid + (5/100); 
-  document.getElementById('bd-pr').value = bid.toFixed(2); 
+  
+  if(isNaN(bid)) {
+    alert('Please input a starting bid.');
+  } else {
+    bid = isNaN(bid) ? 0 : bid;
+    bid = bid + (5/100); 
+    document.getElementById('bd-pr').value = bid.toFixed(2); 
+    calc();
+  }
+  
 }
+// function decrements bid price by .5
 function decrementor() {
   let bid = parseFloat(document.getElementById('bd-pr').value); 
-  bid = isNaN(bid) ? 0 : bid;
-  bid = bid - (5/100); 
-  document.getElementById('bd-pr').value = bid.toFixed(2); 
+  if(isNaN(bid)) {
+    alert('Please input a starting bid.');
+  } else {
+    bid = isNaN(bid) ? 0 : bid;
+    bid = bid - (5/100); 
+    document.getElementById('bd-pr').value = bid.toFixed(2); 
+    calc();
+  }
+
 }
 
 
 document.getElementById('bid-up').addEventListener('click', incrementor);
-document.getElementById('bid-up').addEventListener('click', calc);
+// document.getElementById('bid-up').addEventListener('click', calc);
 document.getElementById('bid-down').addEventListener('click', decrementor);
-document.getElementById('bid-down').addEventListener('click', calc);
+
 document.getElementById('reset').addEventListener('click', resetValues);
   
