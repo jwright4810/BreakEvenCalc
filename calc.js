@@ -112,11 +112,24 @@ function calc() {
     feederBreakeven.innerHTML = '$ ' + ((breakEven * 100).toFixed(2) + ' CWT');  
     profitOutput.innerHTML = '$ ' + beProfit.toFixed(2) + ' /head';
     }
+  } 
+  
+  //reset function resets all input fields to an empty string
 
+  function resetValues() {
+   allInputs = document.getElementsByTagName('input');
+   allOutputs = document.getElementsByTagName('p');
 
-
-  }   
-
+   for(let i = 0; i < allInputs.length; i++) {
+     if(allInputs[i].type !== 'date') {
+       allInputs[i].value = '';
+     }
+    }
+    for(let j = 0; j < allOutputs.length; j++) {
+      allOutputs[j].innerHTML = '';
+    }
+  }
+ 
 
 function incrementor() {
   let bid = parseFloat(document.getElementById('bd-pr').value); 
@@ -136,4 +149,5 @@ document.getElementById('bid-up').addEventListener('click', incrementor);
 document.getElementById('bid-up').addEventListener('click', calc);
 document.getElementById('bid-down').addEventListener('click', decrementor);
 document.getElementById('bid-down').addEventListener('click', calc);
+document.getElementById('reset').addEventListener('click', resetValues);
   
