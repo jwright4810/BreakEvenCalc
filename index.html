@@ -15,13 +15,13 @@
         <div class="input-fields">
             <h1>Average Weight</h1>
             <span class="aver-weight">
-                <input id="aveWgt" type="number"/>
+                <input id="aveWgt" type="number" placeholder="0"/>
             </span>    
         </div>
         <div class="input-fields">
             <h1>Finish Weight</h1>
             <span class="fin-weight">
-                <input id="finWgt" type="number"/>
+                <input id="finWgt" type="number" placeholder="0"/>
             </span>
         </div>
        
@@ -32,23 +32,27 @@
         <div class="input-fields">
             <h1>Rate of Gain</h1>
             <span class="rate-gain">
-                <input id="rog" type="number">
+                <input id="rog" type="number" placeholder="0.0">
             </span>
         </div>
         <div class="input-fields">
             <h1>Cost of Gain</h1>
             <span class="cost-gain">
-                <input id="cog" type="number">
+                <input id="cog" type="number" placeholder="0.00">
             </span>
         </div>
         <div class="input-fields">
             <h1>Death Loss</h1>
             <span class="death-loss">
-                <input id='dl' type="number">
+                <input id='dl' type="number" placeholder="0">
             </span>
         </div>
     </div>
-
+    <div class=buts>
+        <button id="calc" onclick="calc()">Calculate</button>
+        <button id ="reset" onclick="calc()">Reset</button>
+    </div>
+ 
     <!--Finish day and contract month  -->
     <div class="output-container">
         <div class="proj-dates">
@@ -65,18 +69,20 @@
 
         <!-- sell and bid inputs -->
         <div class="sell-bid">
+                <div class="bid-price">
+                    <h1>Bid Price</h1>
+                    <input id='bd-pr' type="number" placeholder="0.00"/>
+                    <div class="inc-but">
+                        <button id="bid-up"><i class="fas fa-plus"></i></button>
+                        <button id="bid-down"><i class="fas fa-minus"></i></button>
+                    </div>  
+                </div>  
             <div class="sell-price">
                 <h1>Sell Price</h1>
-                <input id='sel-pr' type="number" />
-            </div> 
-            <div class="bid-price">
-                <h1>Bid Price</h1>
-                <div class="inc-but">
-                    <button id="bid-up"><i class="fas fa-plus"></i></button>
-                    <button id="bid-down"><i class="fas fa-minus"></i></button>
-                </div>   
-            <input id='bd-pr' type="number" />
+                <input id='sel-pr' type="number" placeholder="0.00"/>
                 
+            </div> 
+               
         </div> 
         <div class="final-output">
             <div class="break-even">
@@ -89,10 +95,7 @@
                 <p id="profit-output"></p>
             </div>
         </div>   
-            
-
     </div>
-    <button onclick="calc()">Calculate</button>
     <script src="calc.js"></script>
 </body>
 </html>
