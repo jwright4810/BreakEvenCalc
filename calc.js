@@ -64,6 +64,7 @@ console.log('todays date', formatDate(modayrString));
 
 
 function calc() {
+
     const aveWeight = document.getElementById('aveWgt').value;
     const finishWeight = document.getElementById('finWgt').value;
     const rateOfGain = document.getElementById('rog').value;
@@ -76,6 +77,9 @@ function calc() {
     const profitOutput  = document.getElementById('profit-output');
     const feederBreakeven = document.getElementById('feeder-be');
 
+    if(aveWeight === null || aveWeight === "") {
+      alert("Eat Shit!")
+    } else {
     //dof calulates how many days it will take to reach target weight
     let dof = (finishWeight - aveWeight) / rateOfGain;
     // tot calculates how much it will cost based on Cost of gain input
@@ -103,6 +107,9 @@ function calc() {
     finContractMonth.innerHTML = feederContractMonth(formatDate(finDate));
     feederBreakeven.innerHTML = '$ ' + ((breakEven * 100).toFixed(2) + ' CWT');  
     profitOutput.innerHTML = '$ ' + beProfit.toFixed(2) + ' /head';
+    }
+
+
 
   }   
 
