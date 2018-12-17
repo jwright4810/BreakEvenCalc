@@ -149,6 +149,7 @@ input[type='date'] {
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
+    margin: 0 auto; 
 }
 .proj-dates h1 {
     font-size: 4.2vw;
@@ -363,4 +364,363 @@ input[type='date'] {
     transition: all 0.1s;
     -webkit-transition: all 0.1s;
     outline: none;
+}
+
+@media screen and (min-width: 420px) {
+    .input-container {
+        /* background-color: rgba(0, 0, 0, 0.212); */
+        display: flex; 
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: wrap;
+        /* box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.212) */
+    }
+    .input-fields {
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto;
+        width: 30vw;
+    }
+    #tdDate {
+        font-size: 3vw;
+    }
+    input[type="date"]::-webkit-clear-button {
+        display: none;
+    }
+    input[type="date"]::-webkit-inner-spin-button {
+        height: 2vw;
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    }
+    input[type='date'] {
+        -webkit-appearance: none; 
+    }
+    .input-fields h1 {
+        font-size: 3.2vw;
+        margin: 10px 5px;
+    }
+    .input-fields input {
+        font-family: inherit;
+        width: 24vw;
+        height: 2vw;
+        margin-bottom: 10px;
+        background: rgba(0,0,0,0.3);
+        border: none;
+        outline: none;
+        padding: 10px;
+        font-size: 4vw;
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 4px;
+        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+        -webkit-transition: box-shadow .5s ease;
+        -moz-transition: box-shadow .5s ease;
+        -o-transition: box-shadow .5s ease;
+        -ms-transition: box-shadow .5s ease;
+        transition: box-shadow .5s ease;
+    }
+    .input-fields input:focus { 
+        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); 
+    }
+    .aver-weight {
+        position: relative;
+    }
+    .aver-weight input {
+        padding-right: 18px;
+        width: 20vw;
+        
+    }
+    .aver-weight::before {
+        position: absolute;
+        top: 2px;
+        content: 'lbs';
+        right: 9vw;
+        font-size: 3.7vw;
+    }
+    .fin-weight {
+        position: relative;
+    }
+    .fin-weight input {
+        padding-right: 18px;
+        width: 20vw;
+        
+    }
+    .fin-weight::before {
+        position: absolute;
+        top: 2px;
+        content: 'lbs';
+        right: 9vw;
+        font-size: 3.7vw;
+    }
+    .rate-gain {
+        position: relative;
+        
+    }
+    .rate-gain input {
+        padding-right: 18px;
+        width: 70%;
+        
+    }
+    .rate-gain::before {
+        position: absolute;
+        top: 3px;
+        content: 'lbs/day';
+        right: 8vw;
+        font-size: 3vw;
+    }
+    .cost-gain {
+        position: relative;
+    }
+    .cost-gain input {
+        padding-right: 18px;
+        width: 70%;
+    }
+    .cost-gain::before {
+        position: absolute;
+         top: 1px;
+        content: '/lb';
+        right: 8vw;
+        font-size: 3.7vw;
+    }
+    .death-loss {
+        position: relative;
+    }
+    .death-loss input {
+        padding-right: 18px;
+        width: 70%;
+    }
+    .death-loss::before {
+        position: absolute;
+        top: -3px;
+        content: '%';
+        right: 9vw;
+        font-size: 3.7vw;
+    }
+    /* .output-container {
+        background-color: rgba(17, 34, 49, 0.212);
+    } */
+    .proj-dates {
+        display: flex; 
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: wrap;
+        margin: 0 0 0 20px; 
+    }
+    .proj-dates h1 {
+        font-size: 4.2vw;
+        margin: 10px 5px; 
+    }
+    .proj-dates p {
+        font-family: inherit;
+        width: 39vw;
+        height: 4vw;
+        margin: 0px 5vw 0 0;
+        background: rgba(0,0,0,0.3);
+        border: none;
+        outline: none;
+        padding: 10px;
+        font-size: 4vw;
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 4px;
+        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+        -webkit-transition: box-shadow .5s ease;
+        -moz-transition: box-shadow .5s ease;
+        -o-transition: box-shadow .5s ease;
+        -ms-transition: box-shadow .5s ease;
+        transition: box-shadow .5s ease;
+    }   
+    .sell-bid {
+        position: relative;
+        display: flex; 
+        flex-direction: column;
+        
+    }
+    .sell-bid h1 {
+        font-size: 4.2vw;
+        margin: 10px 5px; 
+    }
+    .sell-bid input {
+        font-family: inherit;
+        width: 39vw;
+        height: 6.5vw;
+        margin: 0px 25vw 0 0vw;
+        background: rgba(0,0,0,0.3);
+        border: none;
+        outline: none;
+        padding: 10px 0px 10px 38px;
+        font-size: 6vw;
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 4px;
+        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+        -webkit-transition: box-shadow .5s ease;
+        -moz-transition: box-shadow .5s ease;
+        -o-transition: box-shadow .5s ease;
+        -ms-transition: box-shadow .5s ease;
+        transition: box-shadow .5s ease;
+    }
+    .sell-price {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+    }
+    .sell-price::before {
+        position: absolute;
+        top: 10px;
+        content: '$';
+        right: 459px;
+        font-size: 6vw;
+    }
+    .sell-price h1 {
+        font-size: 4.3vw;
+        margin: 4vw 8vw 0 3vw;
+        width: 28vw;
+    }
+    #sel-pr {
+        margin: 0px 223px 0 0vw;
+        width: 230px; 
+    }
+    .bid-price {
+        position: relative;
+        display: flex; 
+        flex-direction: row; 
+        margin: 5vw 0;
+    }
+    .bid-price::before {
+        position: absolute;
+        top: 10px;
+        content: '$';
+        right: 455px;
+        left: 236px;
+        font-size: 6vw;
+    }
+    .bid-price h1 {
+        margin: 3vw 0 0 3vw;
+        width: 28vw;
+        font-size: 4.5vw;
+    }
+    .inc-but {
+        display: flex;
+        flex-direction: column;
+        margin: -12px 0 4px 5vw;
+    }
+    #bd-pr {
+        margin: 0 3vw 0 0vw;
+        width: 31vw;
+    }
+    .inc-but button {
+        padding: 0;
+        border: none;
+        font: inherit;
+        color: inherit;
+        background-color: transparent;
+        cursor: pointer; 
+        text-align: center;
+        margin: 1vw 4vw 0 0;
+        outline: none;
+    }
+    .inc-but .fa-plus:before, .fa-minus:before {
+        font-size: 6vw;
+        text-shadow: 5px 5px 11px black;
+    }
+    .final-output {
+        display: flex;
+        margin: 13px 74px 50px 30px;
+        justify-content: center;
+    }
+    .break-even {
+        display:flex;
+        flex-direction: column;
+        justify-content: center; 
+        margin-left: 30px;
+        font-size: 2.6vw;
+    }
+    .profit {
+        display:flex;
+        flex-direction: column;
+        justify-content: center; 
+        font-size: 2.6vw; 
+    }
+    #feeder-be {
+        font-family: inherit;
+        width: 39vw;
+        height: 6.5vw;
+        margin: 0px 3vw 0 0vw;
+        background: rgba(0,0,0,0.3);
+        border: none;
+        outline: none;
+        padding: 10px;
+        font-size: 5.5vw;
+        color: yellow;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 4px;
+        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+        -webkit-transition: box-shadow .5s ease;
+        -moz-transition: box-shadow .5s ease;
+        -o-transition: box-shadow .5s ease;
+        -ms-transition: box-shadow .5s ease;
+        transition: box-shadow .5s ease;
+    }
+    #profit-output  {
+        font-family: inherit;
+        width: 39vw;
+        height: 6.5vw;
+        margin: 0px 3vw 0 0vw;
+        background: rgba(0,0,0,0.3);
+        border: none;
+        outline: none;
+        padding: 10px;
+        font-size: 5.5vw;
+        color: yellow;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 4px;
+        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+        -webkit-transition: box-shadow .5s ease;
+        -moz-transition: box-shadow .5s ease;
+        -o-transition: box-shadow .5s ease;
+        -ms-transition: box-shadow .5s ease;
+        transition: box-shadow .5s ease;
+    }
+    .buts {
+        display: flex; 
+        justify-content: space-evenly;
+        margin-bottom: 10px; 
+    }
+    #calc {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+        position: relative;
+        padding: 5px 15px;
+        margin: 15px 0px;
+        border-radius: 10px;
+        font-size: 3.5vw;
+        color: #FFF;
+        text-decoration: none;
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+        outline: none;
+    }
+    #reset {
+        background-color: #3498DB;
+        border-bottom: 5px solid #2980B9;
+        text-shadow: 0px -2px #2980B9;
+        position: relative;
+        padding: 5px 25px;
+        margin: 15px 0px;
+        border-radius: 10px;
+        font-size: 3.5vw;
+        color: #FFF;
+        text-decoration: none;
+        transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+        outline: none;
+    }   
 }

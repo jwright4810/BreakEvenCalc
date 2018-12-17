@@ -1,7 +1,3 @@
-
-
-
-
 const todaysDate = new Date().toString().split(' ');
 const modayrString = todaysDate.slice(0,4).toString();
 
@@ -14,7 +10,6 @@ function formatDate(date) {
 
     if (month.length < 2) month = '0' + month;
     if (day.length < 2) day = '0' + day;
-
     return [year, month, day].join('-');
 }
 //automatically returns current date in yyyy-mm-dd format when page is loaded
@@ -51,17 +46,9 @@ console.log('todays date', formatDate(modayrString));
       } else {
         newContract.push(rtYear);
       };
-      
     const finalNewContract = newContract.join(' ').toString();
-    
     return finalNewContract + " Feeder Cattle";
-    
  } 
-
-//  feederContractMonth("2018-04-18");
-    
-
-
 
 function calc() {
 
@@ -162,10 +149,8 @@ function decrementor() {
 
 }
 
-
+document.getElementById('calc').addEventListener('click', calc);
 document.getElementById('bid-up').addEventListener('click', incrementor);
-// document.getElementById('bid-up').addEventListener('click', calc);
 document.getElementById('bid-down').addEventListener('click', decrementor);
-
 document.getElementById('reset').addEventListener('click', resetValues);
   
