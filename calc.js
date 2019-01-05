@@ -153,4 +153,6 @@ document.getElementById('calc').addEventListener('click', calc);
 document.getElementById('bid-up').addEventListener('click', incrementor);
 document.getElementById('bid-down').addEventListener('click', decrementor);
 document.getElementById('reset').addEventListener('click', resetValues);
+document.getElementById('bd-pr').addEventListener('change', calc); 
+document.getElementById('sel-pr').addEventListener('change', calc); 
   
