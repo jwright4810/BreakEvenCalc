@@ -19,26 +19,26 @@ console.log('todays date', formatDate(modayrString));
 //contractMonth will take in a date and output a contract month in this format- Jan 2019
     function feederContractMonth(fdMnth) {
       const mnthArray = fdMnth.split('-');
-      const rtYear = parseInt(mnthArray[0].slice(2));
+      const rtYear = parseInt(mnthArray[0]);
       const rtMonth = parseInt(mnthArray[1]);
       const newContract = [];
     
       if (rtMonth === 12 || rtMonth === 1) {
-          newContract.push('Jan');
+          newContract.push('JAN');
       } else if (rtMonth === 2 || rtMonth === 3) {
-          newContract.push('Mar');
+          newContract.push('MAR');
       } else if (rtMonth === 4) {
-          newContract.push('Apr');
+          newContract.push('APR');
       } else if (rtMonth === 5) {
-          newContract.push('May');
+          newContract.push('MAY');
       } else if (rtMonth === 6 || rtMonth === 7 || rtMonth === 8) {
-        newContract.push('Aug');
+        newContract.push('AUG');
       } else if (rtMonth === 9) {
-        newContract.push('Sep');
+        newContract.push('SEP');
       } else if (rtMonth === 10) {
-        newContract.push('Oct');
+        newContract.push('OCT');
       } else if (rtMonth === 11) {
-        newContract.push('Nov');
+        newContract.push('NOV');
       } else {console.log('error')};
 
       if (rtMonth === 12 ) {
@@ -47,9 +47,21 @@ console.log('todays date', formatDate(modayrString));
         newContract.push(rtYear);
       };
     const finalNewContract = newContract.join(' ').toString();
-    return finalNewContract + " Feeder Cattle";
+    return finalNewContract;
  } 
 
+ //API that grabs the future prices and updates the object futPrices
+let futPrices = {}; 
+ 
+fetch('http://localhost:3000')
+  .then(response => response.json())
+  .then(data => {
+    for(let props in data) {
+      futPrices[props] = data[props];
+    }
+  console.log(futPrices);
+  })
+//function ran when calculator button is clicked
 function calc() {
 
     const aveWeight = document.getElementById('aveWgt').value;
@@ -61,6 +73,7 @@ function calc() {
     const finContractMonth = document.getElementById('contract-month-output');
     const bidPrice = document.getElementById('bd-pr').value;
     const sellPrice = document.getElementById('sel-pr').value;
+    const sellPricePh = document.getElementById('sel-pr');
     const profitOutput  = document.getElementById('profit-output');
     const feederBreakeven = document.getElementById('feeder-be');
 
@@ -94,13 +107,22 @@ function calc() {
       })();
     
     //calculations outputs
+    const futurePricesMonth = feederContractMonth(formatDate(finDate));
+    
+    
     finDay.innerHTML = finDateFormat;
-    finContractMonth.innerHTML = feederContractMonth(formatDate(finDate));
+    finContractMonth.innerHTML = futurePricesMonth + ' Feeder Cattle'; 
     feederBreakeven.innerHTML = '$ ' + ((breakEven * 100).toFixed(2) + ' CWT');  
     profitOutput.innerHTML = '$ ' + beProfit.toFixed(2) + ' /head';
+   
+    //update sell price with current future price on the calculated contract month 
+      for(let key in futPrices) {
+        if(key === futurePricesMonth && futPrices[key] !== '-') {
+          sellPricePh.value = (parseFloat(futPrices[key]) / 100).toFixed(3); 
+        }
+      } 
     }
   } 
-  
   //reset function resets all input fields to an empty string
 
   function resetValues() {
