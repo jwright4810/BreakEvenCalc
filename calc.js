@@ -1,7 +1,7 @@
 const todaysDate = new Date().toString().split(' ');
 const modayrString = todaysDate.slice(0,4).toString();
 
-//formatDate function formats date in yyy-mm-dd
+//formatDate function formats date in yyyy-mm-dd
 function formatDate(date) {
     let d = new Date(date),
         month = '' + (d.getMonth() + 1),
@@ -50,21 +50,21 @@ console.log('todays date', formatDate(modayrString));
     return finalNewContract;
  } 
 
- //API that grabs the future prices and updates the object futPrices
+ //API call that grabs the future prices and updates the object futPrices
 let futPrices = {}; 
  
-fetch('http://localhost:3000')
+fetch('http://localhost:3000/setprices')
   .then(response => response.json())
   .then(data => {
     for(let props in data) {
       futPrices[props] = data[props];
     }
-  console.log(futPrices);
   })
-//function ran when calculator button is clicked
-function calc() {
 
-    const aveWeight = document.getElementById('aveWgt').value;
+  //function ran when calculator button is clicked
+function calc() {
+    
+  const aveWeight = document.getElementById('aveWgt').value;
     const finishWeight = document.getElementById('finWgt').value;
     const rateOfGain = document.getElementById('rog').value;
     const costOfGain = document.getElementById('cog').value;
@@ -100,7 +100,7 @@ function calc() {
     const firDay = new Date(firstDay);
     const finDate = new Date(firDay.setDate(firDay.getDate() + dof));
 
-    const finDateFormat = (function () {
+    const finDateFormat = (function() {
         const arr = formatDate(finDate).split('-');
         const reorderArr = [arr[1], arr[2], arr[0]].join('/').toString();
         return reorderArr;
@@ -108,7 +108,6 @@ function calc() {
     
     //calculations outputs
     const futurePricesMonth = feederContractMonth(formatDate(finDate));
-    
     
     finDay.innerHTML = finDateFormat;
     finContractMonth.innerHTML = futurePricesMonth + ' Feeder Cattle'; 
